@@ -9,6 +9,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// moment js
+import moment from 'moment'
+Vue.filter('timeformat',(arg)=>{
+ return moment(arg).format("MMM Do YY")
+})
+//End Moment Js
 
 // Start Vuex
 
@@ -54,9 +60,6 @@ const toast = Swal.mixin({
 window.toast=toast
 
 //End sweet alert2
-
-
-
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-master', require('./components/admin/AdminMaster.vue').default);
