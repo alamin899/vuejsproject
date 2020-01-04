@@ -25,9 +25,14 @@ class customController extends Controller
     }
 
     public function all_category(){
-        $categories=category::all();
+        $categories=category::orderBy('id', 'DESC')->get();
         return response()->json([
             'categories'=>$categories
             ],200);
+    }
+
+    public function delete($id){
+        $delete=category::find($id);
+        $delete->delete();
     }
 }

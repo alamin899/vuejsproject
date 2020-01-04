@@ -38,7 +38,7 @@
                         <td>{{category.created_at | timeformat}}</td>
                         <td>
                             <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="" @click.prevent="deletecategory(category.id)"  class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
 
@@ -65,7 +65,17 @@
             }
         },
         methods:{
-
+            deletecategory(id){
+               axios.get('/deletecategory/'+id)
+                   .then(()=>{
+                       this.$router.push('/categorylist')
+                       // this.$store.dispatch("allCategory")
+                       toast.fire({
+                           icon: 'warning',
+                           title: 'Category deleted successfully'
+                       })
+                   })
+            }
         }
     }
 </script>

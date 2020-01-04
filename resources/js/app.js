@@ -9,11 +9,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-// moment js
-import moment from 'moment'
-Vue.filter('timeformat',(arg)=>{
- return moment(arg).format("MMM Do YY")
-})
+// moment js support
+import {filter} from './filter'
+
+
 //End Moment Js
 
 // Start Vuex
