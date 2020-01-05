@@ -1,11 +1,11 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-##Features:
-1.Laravel
-2.Bootstrap
-3.Jquery
-4.Vue Js
-Etc
+-##Features:
+-1.Laravel
+-2.Bootstrap
+-3.Jquery
+-4.Vue Js
+-Etc
 
 ##Run Project:
 
