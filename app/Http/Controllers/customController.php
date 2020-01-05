@@ -35,4 +35,17 @@ class customController extends Controller
         $delete=category::find($id);
         $delete->delete();
     }
+
+    public function editviewdata($id){
+        $singlecategory=category::find($id);
+        return response()->json([
+           'category'=>$singlecategory
+        ],200);
+
+    }
+    public function updatecategory(Request $request,$id){
+        category::where("id", $id)->update(["cat_name" => $request->cat_name]);
+
+
+    }
 }

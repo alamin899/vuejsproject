@@ -26,3 +26,7 @@ Route::post('addcategory','customController@addcategory')->name('addcategory');
 Route::get('/category','customController@all_category');
 //delete category
 Route::get('/deletecategory/{id}','customController@delete');
+
+//edit category for view click data
+Route::get('/editcategory/{id}','customController@editviewdata');
+Route::post('/updatecategory/{id}','customController@updatecategory');

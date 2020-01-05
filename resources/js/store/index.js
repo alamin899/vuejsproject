@@ -11,6 +11,9 @@ export default {
     },
     actions:{
         allCategory(context){
+            
+
+
             axios.get('/category')
                 .then((response)=>{
                     // console.log(response.data.categories)
