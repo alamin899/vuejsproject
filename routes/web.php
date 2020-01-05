@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/blogpost','PostController@post');
 
 Route::get('/homepage', 'customController@index')->name('bd');
 Auth::routes();
