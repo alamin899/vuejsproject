@@ -1,6 +1,6 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-- ##Features:
+ ##Features:
 - 1.Laravel
 - 2.Bootstrap
 - 3.Jquery
