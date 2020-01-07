@@ -3,11 +3,11 @@
         <div class="card-header">
             <div class="row">
                 <div class="col" >
-                    <h2>Category List</h2>
+                    <h2>Post List</h2>
                 </div>
                 <div class="col text-right"><button class="card-tools btn btn-primary text-right" >
                     <router-link to="/add-category" style="color:white;text-decoration: none">
-                        Add Category
+                        Add Post
                     </router-link>
                 </button></div>
 
@@ -15,6 +15,7 @@
 
                 <!--</div>-->
             </div>
+
         </div>
 
         <div class=" card-body text-center ">
@@ -67,22 +68,22 @@
         computed:{
 
             getallCategory(){
-               return this.$store.getters.getCategory
+                return this.$store.getters.getCategory
             }
         },
         methods:{
             deletecategory(id){
-            if(confirm("Do you really want to delete?")){
-               axios.get('/deletecategory/'+id)
-                   .then(()=>{
-                       // this.$router.push('/categorylist')
-                       this.$store.dispatch("allCategory")
-                       toast.fire({
-                           icon: 'warning',
-                           title: 'Category deleted successfully'
-                       })
-                   })
-                   }
+                if(confirm("Do you really want to delete?")){
+                    axios.get('/deletecategory/'+id)
+                        .then(()=>{
+                            // this.$router.push('/categorylist')
+                            this.$store.dispatch("allCategory")
+                            toast.fire({
+                                icon: 'warning',
+                                title: 'Category deleted successfully'
+                            })
+                        })
+                }
             }
         }
     }
