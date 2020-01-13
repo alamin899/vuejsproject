@@ -6,6 +6,7 @@ import AddCategory from './components/admin/category/new'
 // post import
 import poscomponent from './components/admin/post/list'
 import AddPost from './components/admin/post/new'
+import editpost from './components/admin/post/edit'
 export const routes=[
     {
         path:'/homepage',
@@ -35,6 +36,10 @@ export const routes=[
         path:'/add-post',
         component:AddPost
     },
+    ,{
+    path:'/editpost/:postid',
+        component:editpost
+    }
 
 
 

@@ -32,5 +32,15 @@ Route::get('/deletecategory/{id}','customController@delete');
 //edit category for view click data
 Route::get('/editcategory/{id}','customController@editviewdata');
 Route::post('/updatecategory/{id}','customController@updatecategory');
+
+//post
 Route::get('/post','PostController@all_post');
+Route::post('addpost','PostController@addpost')->name('addpost');
+Route::get('/updatepostdata/{id}','PostController@updatepostdata')->name('updatepostdata');
+Route::post('/updatepost/{id}','PostController@updatepost');
+
+Route::get('/deletepost/{id}','PostController@delete');
+
+
+
 

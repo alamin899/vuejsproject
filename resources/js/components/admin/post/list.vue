@@ -4,7 +4,7 @@
             <div class="text-right">
                 <button class="card-tools btn btn-primary" >
                     <router-link to="/add-post" style="color:white;text-decoration: none">
-                        Add Category
+                        Add New Post
                     </router-link>
                 </button>
 
@@ -40,8 +40,9 @@
                         <td>{{post.description | sortlength(30,"......More")}}</td>
                         <td>{{post.created_at | timeformat}}</td>
                         <td>
-                            <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            <a href=""  class="btn btn-danger btn-sm">Delete</a>
+                            <router-link :to="`/editpost/${post.id}`" class="btn btn-primary btn-sm">Edit</router-link>
+                            <a href="" @click.prevent="deletepost(post.id)"  class="btn btn-danger btn-sm">Delete</a>
+
                         </td>
                     </tr>
 
@@ -68,6 +69,19 @@
             }
         },
         methods:{
+            deletepost(id){
+                if(confirm("Do you really want to delete?")){
+                    axios.get('/deletepost/'+id)
+                        .then(()=>{
+                            // this.$router.push('/categorylist')
+                            this.$store.dispatch("allPost")
+                            toast.fire({
+                                icon: 'warning',
+                                title: 'Post deleted successfully'
+                            })
+                        })
+                }
+            }
 
         }
     }

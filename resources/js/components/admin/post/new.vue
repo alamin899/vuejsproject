@@ -70,6 +70,20 @@
 
         },
         methods:{
+            addpost(){
+                this.form.post('/addpost')
+                    .then((response)=>{
+                        this.$router.push('/post')
+                        toast.fire({
+                            icon: 'success',
+                            title: 'Post Inserted successfully'
+                        })
+                        // $("#successcontent").append("<p style='color:green'>Succefully Inserted</p>").delay(5000).fadeOut('slow');
+                    })
+                    .catch(()=>{
+
+                    })
+            }
 
         },
     }
