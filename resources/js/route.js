@@ -2,14 +2,16 @@ import homcomponent from './components/admin/AdminHome.vue'
 import categorylistcomponent from './components/admin/category/list'
 import editCategory from './components/admin/category/edit'
 import AddCategory from './components/admin/category/new'
-// For Post
-import postcomponent from './components/admin/post/list'
 
+// post import
+import poscomponent from './components/admin/post/list'
+import AddPost from './components/admin/post/new'
 export const routes=[
     {
         path:'/homepage',
         component:homcomponent
     },
+
     {
         path:'/categorylist',
         component:categorylistcomponent
@@ -23,12 +25,16 @@ export const routes=[
         component:editCategory
     },
 
-    // For Post
+    // post route
+
     {
         path:'/post',
-        component:postcomponent
+        component:poscomponent
     },
-
+    {
+        path:'/add-post',
+        component:AddPost
+    },
 
 
 

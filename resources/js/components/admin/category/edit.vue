@@ -39,7 +39,7 @@
     export default {
         name: "edit",
         mounted(){
-            axios.get(`/editcategory/${this.$route.params.categoryid}`)
+            axios.get(`/editcategory/${this.$route.params.categoryid}`)//${this.$route.params.categoryid this part from vue route
                 .then((response)=>{
                     this.form.fill(response.data.category)
                 })

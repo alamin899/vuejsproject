@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function post(){
-        $post=post::all();
-        return $post;
+    public function all_post(){
+        $posts=post::orderBy('id', 'DESC')->get();
+        return response()->json([
+            'posts'=>$posts
+        ],200);
     }
 }

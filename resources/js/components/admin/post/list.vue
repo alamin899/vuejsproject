@@ -1,21 +1,14 @@
 <template>
     <div >
         <div class="card-header">
-            <div class="row">
-                <div class="col" >
-                    <h2>Post List</h2>
-                </div>
-                <div class="col text-right"><button class="card-tools btn btn-primary text-right" >
-                    <router-link to="/add-category" style="color:white;text-decoration: none">
-                        Add Post
+            <div class="text-right">
+                <button class="card-tools btn btn-primary" >
+                    <router-link to="/add-post" style="color:white;text-decoration: none">
+                        Add Category
                     </router-link>
-                </button></div>
+                </button>
 
-
-
-                <!--</div>-->
             </div>
-
         </div>
 
         <div class=" card-body text-center ">
@@ -24,7 +17,8 @@
                     <thead>
                     <tr>
                         <th>SL</th>
-                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Description</th>
                         <th>Date</th>
                         <th>Action</th>
 
@@ -33,19 +27,21 @@
                     <tfoot>
                     <tr>
                         <th>SL</th>
-                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Description</th>
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
                     <tbody>
-                    <tr v-for="(category,index) in getallCategory" :key="category.id">
+                    <tr v-for="(post,index) in getallpost" :key="post.id">
                         <td>{{index+1}}</td>
-                        <td>{{category.cat_name}}</td>
-                        <td>{{category.created_at | timeformat}}</td>
+                        <td>{{post.title}}</td>
+                        <td>{{post.description | sortlength(30,"......More")}}</td>
+                        <td>{{post.created_at | timeformat}}</td>
                         <td>
-                            <router-link :to="`/edit-category/${category.id}`" class="btn btn-primary btn-sm">Edit</router-link>
-                            <a href="" @click.prevent="deletecategory(category.id)"  class="btn btn-danger btn-sm">Delete</a>
+                            <a href="" class="btn btn-primary btn-sm">Edit</a>
+                            <a href=""  class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
 
@@ -62,29 +58,17 @@
     export default {
         name: "list",
         mounted(){
-            this.$store.dispatch("allCategory")
+            this.$store.dispatch("allPost")
 
         },
         computed:{
 
-            getallCategory(){
-                return this.$store.getters.getCategory
+            getallpost(){
+                return this.$store.getters.getPost
             }
         },
         methods:{
-            deletecategory(id){
-                if(confirm("Do you really want to delete?")){
-                    axios.get('/deletecategory/'+id)
-                        .then(()=>{
-                            // this.$router.push('/categorylist')
-                            this.$store.dispatch("allCategory")
-                            toast.fire({
-                                icon: 'warning',
-                                title: 'Category deleted successfully'
-                            })
-                        })
-                }
-            }
+
         }
     }
 </script>
